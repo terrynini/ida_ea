@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from api_funcs import *
+from .api_funcs import *
 from copy import copy
-from ea_UI import Cmd_UI
-from ea_utils import QtWidgets, ea_warning, get_bits, get_mem_recursive, parse_mem, style
+from .ea_UI import Cmd_UI
+from .ea_utils import QtWidgets, ea_warning, get_bits, get_mem_recursive, parse_mem, style
 from idaapi import *
 from idautils import *
 from idc import *
@@ -34,7 +34,7 @@ def find(arg, int_size):
 
     for x in range(100):
         newAddr = FindText(addr, SEARCH_DOWN, 0, 0, arg)
-        if newAddr != 0xffffffffffffffffL:
+        if newAddr != 0xffffffffffffffff:
             if newAddr > addr:
                 addr = newAddr
                 matches.append(addr)

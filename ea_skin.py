@@ -1,5 +1,5 @@
-from ea_UI import QtGui, QtWidgets, QtCore, Name_UI, Reskin_UI
-from ea_utils import config, root_dir, save_config, set_style
+from .ea_UI import QtGui, QtWidgets, QtCore, Name_UI, Reskin_UI
+from .ea_utils import config, root_dir, save_config, set_style
 from idaapi import *
 
 

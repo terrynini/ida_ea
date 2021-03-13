@@ -5,10 +5,10 @@ if IDA_SDK_VERSION < 690:
         # Hack to maintain backward compatibility with 6.8
         from PySide import QtGui as QtWidgets, QtGui, QtCore
     except:
-        print "IDA EA Error: Couldn't Find PySide Bindings, Trying PyQt"
+        print("IDA EA Error: Couldn't Find PySide Bindings, Trying PyQt")
         from PyQt4 import QtGui as QtWidgets, QtGui, QtCore
 else:
-    print "Warning: IDA EA untested with IDA >=6.9"
+    print("Warning: IDA EA untested with IDA >=6.9")
     from PyQt5 import QtGui, QtCore, QtWidgets
 
 

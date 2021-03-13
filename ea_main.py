@@ -1,10 +1,13 @@
-from ea_cmd import ea_cmd
-from ea_emu_client import ea_emulate
-from ea_heap import ea_heap
-from ea_skin import apply_skin, ea_reskin
-from ea_trace import ea_trace
-from ea_utils import QtWidgets, config
-from ea_view import ea_view
+from .ea_cmd import ea_cmd
+from .ea_emu_client import ea_emulate
+from .ea_heap import ea_heap
+from .ea_skin import apply_skin, ea_reskin
+from .ea_trace import ea_trace
+from .ea_utils import QtWidgets, config
+from .ea_view import ea_view
+
+# import module from same directory was changed in python3
+# ref: https://stackoverflow.com/questions/27365273/
 
 if config["apply_skin_on_startup"]:
     apply_skin(init=True)

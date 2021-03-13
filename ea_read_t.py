@@ -1,7 +1,7 @@
 import pandas as pd
 import pandas.io.formats.format as pf
 
-from cPickle import load
+from pickle import load
 from code import interact
 from sys import argv
 
@@ -42,16 +42,16 @@ pf.IntArrayFormatter = IntArrayFormatter
 if __name__ == "__main__":
 
     df = load_df(argv[1])
-    print
-    print df
-    print
-    print "dataframe name: df"
-    print "dataframe columns: %s" % list(df.columns)
-    print
-    print "current settings:"
-    print "pd.options.display.max_rows".ljust(50) + str(pd.options.display.max_rows)
-    print "pd.options.display.width".ljust(50) + str(pd.options.display.width)
-    print "pd.options.display.max_colwidth".ljust(50) + str(pd.options.display.max_colwidth)
-    print "pd.options.display.max_columns".ljust(50) + str(pd.options.display.max_columns)
-    print ""
+    print("")
+    print(df) 
+    print("")
+    print("dataframe name: df") 
+    print("dataframe columns: %s" % list(df.columns) )
+    print("")
+    print("current settings:") 
+    print("pd.options.display.max_rows".ljust(50) ) + str(pd.options.display.max_rows)
+    print("pd.options.display.width".ljust(50) ) + str(pd.options.display.width)
+    print("pd.options.display.max_colwidth".ljust(50) ) + str(pd.options.display.max_colwidth)
+    print("pd.options.display.max_columns".ljust(50) ) + str(pd.options.display.max_columns)
+    print("") 
     interact(local=globals())

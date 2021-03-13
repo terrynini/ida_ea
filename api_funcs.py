@@ -103,7 +103,7 @@ def traceFunc(filter ="", type= 10):
         name = GetFunctionName(func)
 
         if filter in name.lower():
-            print name
+            print(name) 
             add_bp(func, type)
 
 
@@ -119,7 +119,7 @@ def traceSeg(filter =""):
         end = SegEnd(addr)
 
         if filter in name.lower():
-            print name
+            print(name) 
             add_bp(addr, 10, end - addr)
 
 

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from api_funcs import *
-from cPickle import dump
+from .api_funcs import *
+from pickle import dump
 from copy import copy
-from ea_UI import View_UI
-from ea_utils import QtWidgets, a_sync, cPrint, config, get_bits, get_mem_recursive, parse_mem, save_config, ea_warning, style
+from .ea_UI import View_UI
+from .ea_utils import QtWidgets, a_sync, cPrint, config, get_bits, get_mem_recursive, parse_mem, save_config, ea_warning, style
 from idaapi import *
 from idautils import *
 from idc import *

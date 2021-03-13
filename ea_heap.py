@@ -1,6 +1,6 @@
-from api_funcs import *
-from ea_UI import Heap_UI, Set_Offset_UI
-from ea_utils import QtCore, QtWidgets, config, ea_warning, get_bits, read, root_dir, save_config
+from .api_funcs import *
+from .ea_UI import Heap_UI, Set_Offset_UI
+from .ea_utils import QtCore, QtWidgets, config, ea_warning, get_bits, read, root_dir, save_config
 from idaapi import *
 from idautils import *
 from idc import *
@@ -135,7 +135,7 @@ def get_malloc_state():
 
     main_arena = malloc_state(main_arena_addr)
 
-    print main_arena
+    print(main_arena) 
 
     mem = dbg_read_memory(main_arena.address, 2200)
     current = 0

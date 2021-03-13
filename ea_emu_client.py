@@ -1,9 +1,9 @@
 import socket
 
-from api_funcs import *
-from cPickle import dumps, loads
-from ea_UI import Emulate_UI
-from ea_utils import QtWidgets, ea_warning, get_bits, root_dir
+from .api_funcs import *
+from pickle import dumps, loads
+from .ea_UI import Emulate_UI
+from .ea_utils import QtWidgets, ea_warning, get_bits, root_dir
 from idaapi import *
 from os import name
 from subprocess import Popen

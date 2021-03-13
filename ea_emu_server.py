@@ -3,7 +3,7 @@
 import socket
 import sys
 
-from cPickle import dumps, loads
+from pickle import dumps, loads
 from collections import OrderedDict
 from copy import copy
 from time import sleep
@@ -24,9 +24,9 @@ except:
 
 
 def debug(type, value, traceback):
-    print "".join(format_tb(traceback, None))
-    print type
-    print value
+    print("".join(format_tb(traceback, None)))
+    print(type) 
+    print(value) 
     raw_input()
 
 
@@ -88,9 +88,9 @@ def hook_code(uc, address, size, user_data):
 
     if server_print:
         if address in instructions:
-            print (hex(address) + ": " + " ".join(instructions[address])).ljust(50) + "".join("%s: %s; "%(a,hex(b)) for a, b in reg_changes)
+            print((hex(address) ) + ": " + " ".join(instructions[address])).ljust(50) + "".join("%s: %s; "%(a,hex(b)) for a, b in reg_changes)
         elif dbg:
-            print "Unmapped instruction %s" % address
+            print("Unmapped instruction %s" % address) 
 
     if address == 0:
         uc.emu_stop()
@@ -143,8 +143,8 @@ def emulate(address=False, code=False, _32_bits=True):
         instructions = OrderedDict((i.address, (i.mnemonic, i.op_str)) for i in md.disasm(code[address - rounded:], address))
 
         if dbg:
-            print reg_vals
-            print instructions
+            print(reg_vals) 
+            print(instructions) 
 
         uc = Uc(UC_ARCH_X86, UC_MODE_32 if _32_bits else UC_MODE_64)
         uc.mem_map(rounded, 0x1000)
@@ -161,13 +161,13 @@ def emulate(address=False, code=False, _32_bits=True):
         reg_state = get_state(uc)
 
         try:
-            print "Emulating instructions:"
+            print("Emulating instructions:") 
             uc.emu_start(address, address + 200, timeout=1000000)
         except UcError as e:
             if dbg:
-                print e
+                print(e) 
 
-        print "Finished emulating\n"
+        print("Finished emulating\n") 
 
         return "result", annotations
 
@@ -200,10 +200,10 @@ def server():
             s.connect((TCP_IP, TCP_PORT))
             s.send(dumps(("ping",(0,0,0,0))))
             if s.recv(0x10) == "pong":
-                print "An instance of the server is already running. This window will close in 2 seconds"
+                print("An instance of the server is already running. This window will close in 2 seconds") 
                 sleep(2)
             else:
-                print "Error: Port %s is in use" % TCP_PORT
+                print("Error: Port %s is in use" % TCP_PORT) 
                 raw_input()
         else:
             raise
@@ -227,7 +227,7 @@ def server():
                 conn.send(dumps(emulate(addr, code, bits)))
                 conn.close()
             else:
-                print "Unrecognized cmd: " + cmd
+                print("Unrecognized cmd: " + cmd) 
                 conn.close()
 
 sys.excepthook = debug
@@ -265,6 +265,6 @@ reg_total.update(x86_regs)
 dbg = False
 server_print = True
 
-print "Running emulation server..."
+print("Running emulation server...") 
 
 server()
